@@ -1,5 +1,5 @@
-export const Home = () =>{
+export const Home = () => {
     return(
-        <h1 className = "text-white">Home</h1>
+        <h1 className="text-white">Home</h1>
     )
 }
