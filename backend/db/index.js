@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // Set up default mongoose connection
-const mongoDB = "mongodb://mongodb://localhost:27017/tomato";
+const mongoDB = "mongodb://localhost:27017/tomato";
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Get the default connection
