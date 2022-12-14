@@ -12,7 +12,9 @@ export const ProductsPreview = () => {
             // .then(data => console.log(data))
             .then(data => setProducts(data?.data))
             .catch(err => console.log(err))
-    })
+            // console.log('API was called');
+            // adding empty array in useEffect to represent that our useEffect doesn't depend on any state
+    }, []);
     // working setup for carousel
     const responsive = {
         superLargeDesktop: {
