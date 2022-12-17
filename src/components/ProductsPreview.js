@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { ProductPreviewCart } from "./ProductPreviewCart";
+import { ProductPreviewCard } from "./ProductPreviewCard";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { useDispatch } from "react-redux";
+import { addToCart } from "../stores/cart/cartSlice";
 
 export const ProductsPreview = () => {
-    const [products, setProducts] = useState({});
+
+    const [products, setProducts] = useState([]);
+    const dispatch = useDispatch();
+
     useEffect(() =>{
         fetch("http://localhost:8080/api/products")
-        // fetch("https://api.github.com/users/adityaajay29")
             .then(res => res.json())
-            // .then(data => console.log(data))
-            .then(data => setProducts(data?.data))
+            .then(res => setProducts(res.data))
             .catch(err => console.log(err))
-            // console.log('API was called');
             // adding empty array in useEffect to represent that our useEffect doesn't depend on any state
     }, []);
+
+    const onAddProduct = (product) => {
+        dispatch(addToCart(product));
+    }
+
     // working setup for carousel
     const responsive = {
         superLargeDesktop: {
@@ -36,18 +43,15 @@ export const ProductsPreview = () => {
         }
       };
 
-    const onAddProduct = (product) => {
-        console.log(product);
-    }
 
     return (
-        <div className="container mx-auto pb-4 w-2/3 text-white">
+        <div className="container mx-auto pb-4 w-2/3 text-white bg-black">
             <Carousel responsive={responsive}>
                 {
                     products.length > 0 && products.map((product, index) => {
                         return(
                             <div className="w-full p-3 bg-black">
-                                <ProductPreviewCart key = {index} product = {product} onAddProduct = {onAddProduct} />
+                                <ProductPreviewCard key = {index} product = {product} onAddProduct = {onAddProduct} />
                             </div>
                         )
                     })

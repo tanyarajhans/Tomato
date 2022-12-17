@@ -1,9 +1,10 @@
 import { AddProduct } from "./AddProduct";
 
-export const ProductPreviewCart = ({ product, onAddProduct }) => {
+
+export const ProductPreviewCard = ({ product, onAddProduct }) => {
 
     const addProduct = () => {
-        // TODO after redux part
+        onAddProduct(product);
     }
 
     return (
