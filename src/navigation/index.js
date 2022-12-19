@@ -3,14 +3,18 @@ import { Header } from "../components/Header";
 import { Cart } from "../pages/Cart";
 import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
-import { Menu } from "../pages/Menu";
+import Menu from "../pages/Menu";
 import { Signup } from "../pages/Signup";
 import { Payment } from "../pages/Payment";
+import { useSelector } from "react-redux";
+import { cartProducts } from "../stores/cart/cartSlice";
 
 export const Navigation = () => {
+    const productsInCart = useSelector(cartProducts);
+
     return(
         <BrowserRouter>
-            <Header></Header>
+            <Header cartCount = {productsInCart ? productsInCart.length : 0}></Header>
             <Routes>
                 <Route path="/" element={<Home/>}></Route>
                 <Route path="/cart" element={<Cart/>}></Route>
