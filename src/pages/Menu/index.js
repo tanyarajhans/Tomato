@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import ProductDetailCard from "../../components/ProductDetailCard";
 import { Tabs } from "../../components/Tabs";
 import { addToCart } from "../../stores/cart/cartSlice";
-import { findIndex } from "lodash";
 
 const Menu = () => {
     const dispatch = useDispatch();
     const products = useSelector(selectAllProducts);
     const [activeTab, setActiveTab] = useState('');
     const [activeTabIndex, setActiveTabIndex] = useState(0);
+
     useEffect(() => {
         dispatch(fetchProducts());
     }, [])
@@ -47,7 +47,7 @@ const Menu = () => {
                             onTabSwitch = {onTabSwitch}
                         />
                     }
-                    <div className="flex flex-row">
+                    <div className="flex flex-row mx-auto">
                         {
                             products.products && products.products[activeTabIndex].products.map((product, index) => {
                                 return (

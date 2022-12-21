@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { TabItem } from "./TabItem";
 
 export const Tabs = ({ list, activeTab, onTabSwitch }) => {
@@ -12,7 +11,7 @@ export const Tabs = ({ list, activeTab, onTabSwitch }) => {
                             title = {item}
                             key = {index}
                             index = {index}
-                            active = {active === item}
+                            active = {active === item} //boolean value, if true tab gets highled by border bottom yellow
                             setActive = {onTabSwitch}
                         />
                     )
