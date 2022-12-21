@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useTabSwitch from "../../hooks/useTabSwitch";
 import { Tabs } from "../../components/Tabs";
 import { cartProducts } from "../../stores/cart/cartSlice";
+import { AddressForm } from "../../components/AddressForm";
 
 const Cart = () => {
     const cart = useSelector(cartProducts);
@@ -22,7 +23,7 @@ const Cart = () => {
                 Summary
             </div>
             <div className={`tabs ${currentTab !=='Delivery' ? 'hidden' : ''}`}>
-                Address Form
+                <AddressForm></AddressForm>
             </div>
             <div className={`tabs ${currentTab !=='Payment' ? 'hidden' : ''}`}>
                 Payment Form
