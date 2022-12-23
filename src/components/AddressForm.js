@@ -2,15 +2,15 @@ import { useForm } from "react-hook-form";
 import Button from "./elements/Button";
 import { ReactComponent as ArrowRightSvg } from "../assets/icons/arrow-right-long-svgrepo-com.svg";
 import { useDispatch } from "react-redux";
-import { setAddress } from "../stores/userInfo/addressSilce";
+import { setAddress } from "../stores/userInfo/addressSlice";
 
-export const AddressForm = ({ onTabSwitch }) => {
+export const AddressForm = (onTabSwitch) => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const dispatch = useDispatch();
 
     const onSubmit = (data) => {
         dispatch(setAddress(data));
-        onTabSwitch('Payment')
+        onTabSwitch('Payment');
     }
 
     return (

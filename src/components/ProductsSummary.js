@@ -1,14 +1,13 @@
-import { useSelector } from "react-redux";
-import { cartProducts } from "../stores/cart/cartSlice";
-import { ProductSummaryCard } from "./ProductSummaryCard";
+import { ProductsSummaryCard } from "./ProductsSummaryCard"
 
-export const ProductsSummary = () => {
-    const cart = useSelector(cartProducts);
+
+export const ProductsSummary = ({cartProducts}) => {
+
     return (
-        <div>
-            {cart && cart.map((product, index) => {
+        <div className="flex flex-col">
+            { cartProducts && cartProducts?.map((product, index) => {
                 return (
-                    <ProductSummaryCard product={product} key={index}/>
+                    <ProductsSummaryCard product={product} key={index} />
                 )
             })}
         </div>
