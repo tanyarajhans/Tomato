@@ -18,11 +18,11 @@ export const cartSlice = createSlice({
     },
 
     incrementProductAmount: (state, action) => {
-        return {products: state.products.map(product => product.id===action.payload.id ? {...product, amount: product.amount + 1}: product)}
+        return {products: state.products.map(product => product.name===action.payload.name ? {...product, amount: product.amount + 1}: product)}
     },
 
     decrementProductAmount: (state, action) => {
-        return {products: state.products.map(product => product.id===action.payload.id ? {...product, amount: product.amount - 1}: product)}
+        return {products: state.products.map(product => product.name===action.payload.name ? {...product, amount: product.amount - 1}: product)}
     },
 
   }
