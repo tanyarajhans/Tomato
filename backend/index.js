@@ -100,8 +100,6 @@ app.post('/create-payment-intent', async(req, res) => {
 
         const totalPrice = calculateOrderAmount(orderItems);
 
-        // const totalPrice = 100;
-
         const taxPrice = 0;
         const shippingPrice = 0;
 

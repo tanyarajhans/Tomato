@@ -9,8 +9,8 @@ import Button from './elements/Button';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+const publishable_key=`${process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}`;
+const stripePromise = loadStripe(publishable_key);
 
 export const StripeWrapper = () => {
     return (
