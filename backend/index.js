@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const db=require("./db");
 const productRouter=require("./routes/productRouter.js");
+<<<<<<< HEAD
 
 const Order = require("./models/orderModel");
 
@@ -15,11 +16,16 @@ env.config({path : "../.env"});
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
+=======
+const app=express();
+
+>>>>>>> main
 var corsOptions = {
     origin: 'http://localhost:3000'
 }
 
 app.use(cors(corsOptions));
+<<<<<<< HEAD
 
 app.use(
     // verification of webhook signature
@@ -70,6 +76,8 @@ app.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
     res.sendStatus(200);
   });
 
+=======
+>>>>>>> main
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/', productRouter);
@@ -85,6 +93,7 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
+<<<<<<< HEAD
 const calculateOrderAmount = (orderItems) => {
     const initialValue = 0;
     const itemsPrice = orderItems.reduce(
@@ -136,3 +145,5 @@ app.post('/create-payment-intent', async(req, res) => {
         })
     }
 })
+=======
+>>>>>>> main

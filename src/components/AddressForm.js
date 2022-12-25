@@ -4,7 +4,11 @@ import { ReactComponent as ArrowRightSvg } from "../assets/icons/arrow-right-lon
 import { useDispatch } from "react-redux";
 import { setAddress } from "../stores/userInfo/addressSlice";
 
+<<<<<<< HEAD
 export const AddressForm = ({ onTabSwitch }) => {
+=======
+export const AddressForm = (onTabSwitch) => {
+>>>>>>> main
     const { register, formState: { errors }, handleSubmit } = useForm();
     const dispatch = useDispatch();
 

@@ -5,10 +5,16 @@ import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
 import Menu from "../pages/Menu";
 import { Signup } from "../pages/Signup";
+<<<<<<< HEAD
 import Payment from "../pages/Payment";
 import { useSelector } from "react-redux";
 import { cartProducts } from "../stores/cart/cartSlice";
 import { Footer } from "../components/Footer";
+=======
+import { Payment } from "../pages/Payment";
+import { useSelector } from "react-redux";
+import { cartProducts } from "../stores/cart/cartSlice";
+>>>>>>> main
 
 export const Navigation = () => {
     const productsInCart = useSelector(cartProducts);
@@ -24,7 +30,10 @@ export const Navigation = () => {
                 <Route path="/menu" element={<Menu/>}></Route>
                 <Route path="/payment" element={<Payment/>}></Route>
             </Routes>
+<<<<<<< HEAD
             <Footer />
+=======
+>>>>>>> main
         </BrowserRouter>
     )
 }

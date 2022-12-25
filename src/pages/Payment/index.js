@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Alert } from "../../components/elements/Alert";
 
 const Payment = () => {
@@ -7,6 +8,11 @@ const Payment = () => {
                 Your payment was successfull
             </Alert>
         </div>
+=======
+export const Payment = () => {
+    return(
+        <h1 className="text-white">Payment</h1>
+>>>>>>> main
     )
 }
 
