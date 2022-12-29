@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const db=require("./db");
 const productRouter=require("./routes/productRouter.js");
+const userRouter = require("./routes/userRouter");
 
 const Order = require("./models/orderModel");
 
@@ -73,6 +74,7 @@ app.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/', productRouter);
+app.use('/api/', userRouter);
 
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 

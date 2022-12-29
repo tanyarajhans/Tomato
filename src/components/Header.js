@@ -1,8 +1,34 @@
 import foody from "../assets/images/foody.png";
 import cartIcon from "../assets/icons/cart.svg";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Button from "./elements/Button";
+import { useState, useEffect } from "react";
 
 export const Header = ({cartCount}) => {
+    const navigate = useNavigate();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const handleLogout = () => {
+        sessionStorage.removeItem('Auth token');
+        sessionStorage.removeItem('User Id');
+        window.dispatchEvent(new Event("storage"))
+        navigate('/');
+    }
+
+    useEffect(() => {
+        const checkAuthToken = () => {
+            const token = sessionStorage.getItem('Auth token');
+            token ? setIsLoggedIn(true) : setIsLoggedIn(false);
+        }
+        
+        window.addEventListener('storage', checkAuthToken);
+
+        return () => {
+            window.removeEventListener('storage', checkAuthToken);
+        }
+    }, [])
+    
     return (
         <nav id="header" className="bg-black text-white">
             <div className="container w-full mx-atuo flex flex-wrap items-center justify-between mt-0 py-2">
@@ -26,8 +52,16 @@ export const Header = ({cartCount}) => {
                             null
                         }
                     </Link>
-                    <Link to = "/Login">Login</Link>
-                    <Link to = "/Signup">Sign Up</Link>
+                    {
+                        isLoggedIn ? 
+                        <Button onClick = {handleLogout}>Logout</Button> : 
+                        (
+                            <>
+                                <Link to = "/Login">Login</Link>
+                                <Link to = "/Signup">Sign Up</Link>
+                            </>
+                        )
+                    }
                 </div>
             </div>
         </nav>
