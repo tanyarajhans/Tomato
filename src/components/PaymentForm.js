@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { clearCart, cartProducts } from '../stores/cart/cartSlice';
 import { getAddress, clearAddress } from '../stores/userInfo/addressSlice' 
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Button from './elements/Button';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
