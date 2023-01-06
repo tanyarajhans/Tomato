@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import useTabSwitch from "../../hooks/useTabSwitch";
 import { Tabs } from "../../components/Tabs";
 import { cartProducts } from "../../stores/cart/cartSlice";
